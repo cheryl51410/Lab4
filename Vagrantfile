@@ -1,25 +1,25 @@
 
-Vagrant.configure("2") do |config|
 
-	config.vm.define "box1" do |box1|
-		box1.vm.box="ubuntu/trusty64"
-		box1.vm.network :forwarded_port, guest: 22, host: 10122, id: "ssh"
-		box1.vm.network :private_network, ip: "192.168.10.125"
-		box1.vm.provider :virtualbox do |v|
-			v.customize ["modifyvm", :id, "--memory", 1020]
-		box1.vm.provision "shell", inline: <<-SHELL
-			sudo apt-get update
-			SHELL
-		end
-	end
+!/bin/bash
+clear
+echo -e "\e[1;4;94mTOP 10 CPU USERS\e[0m"
+echo -ne "\e[94m"
+ps aux k-pcpu | head -11
+echo -e "\e[0m"
+echo
+echo -e "\e[1;4;32mTOP 10 MEMORY USERS\e[0m"
+echo -ne "\e[32m"
+ps aux k-pmem | head -11
+echo -e 
 
-	config.vm.define "box2" do |box2|
-		box2.vm.box="scotch/box"
-		box2.vm.network :forwarded_port, guest: 22, host: 10222, id: "ssh"
-		box2.vm.network :private_network, ip: "192.168.10.150"
-		box2.vm.provision "shell", inline: <<-SHELL
-			sudo apt-get update
-			sudo apt-get install -y nginx
-			SHELL
-		end
-	end
+!/bin/bash
+clear
+echo -e "\e[1;4;94mTOP 10 CPU USERS\e[0m"
+echo -ne "\e[94m"
+ps aux k-pcpu | head -11
+echo -e "\e[0m"
+echo
+echo -e "\e[1;4;32mTOP 10 MEMORY USERS\e[0m"
+echo -ne "\e[32m"
+ps aux k-pmem | head -11
+echo -e 
